@@ -14,7 +14,7 @@ This implementation follows these conventions:
 - The data array contains signed integers.
 - Newlines are expected as a single character ('\n').
 
-# Running a Brainfuck program
+## Running a Brainfuck program
 
 You can run a program as follows:
 
