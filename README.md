@@ -2,7 +2,7 @@
 
 ## Overview
 
-Brainfuck interpreter written in Go.
+Brainfuck interpreter written in Go. Written and tested with Go 1.4.
 
 For more information about the Brainfuck programming language, see:
 
