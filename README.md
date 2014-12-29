@@ -3,6 +3,11 @@ go-brainfuck
 
 Brainfuck interpreter written in Go.
 
+For more information about the Brainfuck programming language, see:
+
+- https://en.wikipedia.org/wiki/Brainfuck
+- https://esolangs.org/wiki/Brainfuck
+
 This implementation follows these conventions:
 
 - The data array contains signed integers.
