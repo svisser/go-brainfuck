@@ -58,33 +58,33 @@ func main() {
 	var source_length = len(source)
 	var dp = 0
 	for ip := 0; ip < source_length; {
-		var c = string(source[ip])
+		var c = source[ip]
 		switch {
-		case c == ">":
+		case c == '>':
 			dp += 1
 			ip += 1
-		case c == "<":
+		case c == '<':
 			dp -= 1
 			ip += 1
-		case c == "+":
+		case c == '+':
 			data[dp] += 1
 			ip += 1
-		case c == "-":
+		case c == '-':
 			data[dp] -= 1
 			ip += 1
-		case c == ".":
+		case c == '.':
 			fmt.Printf("%c", data[dp])
 			ip += 1
-		case c == ",":
-                        fmt.Scanf("%c", &data[dp])
+		case c == ',':
+			fmt.Scanf("%c", &data[dp])
 			ip += 1
-		case c == "[":
+		case c == '[':
 			if data[dp] == 0 {
 				ip = jump_forward(source, ip+1, source_length)
 			} else {
 				ip += 1
 			}
-		case c == "]":
+		case c == ']':
 			if data[dp] != 0 {
 				ip = jump_backward(source, ip-1)
 			} else {
