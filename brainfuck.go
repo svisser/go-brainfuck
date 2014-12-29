@@ -1,10 +1,12 @@
 package main
 
-import "bufio"
-import "flag"
-import "fmt"
-import "io/ioutil"
-import "os"
+import (
+	"bufio"
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"os"
+)
 
 func jump_forward(source []uint8, start int, source_length int) int {
 	var target = 0
