@@ -93,5 +93,12 @@ func main() {
 		default:
 			ip += 1
 		}
+		// execution ends as expected when ip == source_length
+		if ip < 0 || ip > source_length {
+			panic(fmt.Sprintf("Aborting execution as instruction pointer is invalid: %d.", ip))
+		}
+		if dp < 0 || dp >= *sizePtr {
+			panic(fmt.Sprintf("Aborting execution as data pointer is invalid: %d.", dp))
+		}
 	}
 }
