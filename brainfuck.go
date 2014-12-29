@@ -24,11 +24,11 @@ func jump_forward(source []uint8, start int, source_length int) int {
 	return target + 1
 }
 
-func jump_backward(b []uint8, start int) int {
+func jump_backward(source []uint8, start int) int {
 	var target = 0
 	var cnt = 1
 	for tip := start; tip > 0; tip-- {
-		cc := string(b[tip])
+		cc := string(source[tip])
 		if cc == "]" {
 			cnt += 1
 		} else if cc == "[" {
