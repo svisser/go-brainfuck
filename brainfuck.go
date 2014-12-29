@@ -1,8 +1,10 @@
 package main
 
+import "bufio"
 import "flag"
 import "fmt"
 import "io/ioutil"
+import "os"
 
 func main() {
     pathPtr := flag.String("path", "", "path to Brainfuck source")
@@ -19,6 +21,8 @@ func main() {
     if err != nil {
        panic(err)
     }
+
+    reader := bufio.NewReader(os.Stdin)
 
     var data = make([]int, *sizePtr)
     var b_length = len(b)
@@ -42,12 +46,14 @@ func main() {
                 fmt.Print(string(data[dp]))
                 ip += 1
             case c == ",":
-                var i int
-                d, err := fmt.Scanf("%d", &i)
+                s, err := reader.ReadString('\n')
                 if err != nil {
                     panic(err)
                 }
-                data[dp] = d
+                if len(s) != 2 {
+                    panic("You must provide a single character")
+                }
+                data[dp] = int(s[0])
                 ip += 1
             case c == "[":
                 if data[dp] == 0 {
