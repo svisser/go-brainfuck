@@ -15,4 +15,4 @@ This implementation follows these conventions:
 
 You can run a program as follows:
 
-    go run brainfuck.go -path=code.bf
+    go run brainfuck.go -path=samples/hello_world.bf
