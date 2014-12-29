@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -55,8 +54,6 @@ func main() {
 		panic(err)
 	}
 
-	reader := bufio.NewReader(os.Stdin)
-
 	var data = make([]int, *sizePtr)
 	var source_length = len(source)
 	var dp = 0
@@ -76,17 +73,10 @@ func main() {
 			data[dp] -= 1
 			ip += 1
 		case c == ".":
-			fmt.Print(string(data[dp]))
+			fmt.Printf("%c", data[dp])
 			ip += 1
 		case c == ",":
-			s, err := reader.ReadString('\n')
-			if err != nil {
-				panic(err)
-			}
-			if len(s) != 2 {
-				panic("You must provide a single character")
-			}
-			data[dp] = int(s[0])
+                        fmt.Scanf("%c", &data[dp])
 			ip += 1
 		case c == "[":
 			if data[dp] == 0 {
