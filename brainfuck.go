@@ -53,6 +53,7 @@ func main() {
 	path := *pathPtr
 	if path == "" {
 		fmt.Println("You must specify a path to Brainfuck source: -path=...")
+		os.Exit(1)
 	}
 
 	source, err := ioutil.ReadFile(path)
