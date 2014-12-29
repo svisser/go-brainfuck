@@ -6,6 +6,7 @@ import "io/ioutil"
 
 func main() {
     pathPtr := flag.String("path", "", "path to Brainfuck source")
+    sizePtr := flag.Int("size", 30000, "size of the data array")
 
     flag.Parse()
 
@@ -19,7 +20,7 @@ func main() {
        panic(err)
     }
 
-    var data [30000]int
+    var data = make([]int, *sizePtr)
     var b_length = len(b)
     var dp = 0
     for ip := 0; ip < b_length; {
