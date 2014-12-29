@@ -9,39 +9,33 @@ import (
 )
 
 func jump_forward(source []uint8, start int, source_length int) int {
-	var target = 0
-	var cnt = 1
+	var count = 1
 	for tip := start; tip < source_length; tip++ {
-		cc := string(source[tip])
-		if cc == "[" {
-			cnt += 1
-		} else if cc == "]" {
-			cnt -= 1
+		if source[tip] == '[' {
+			count += 1
+		} else if source[tip] == ']' {
+			count -= 1
 		}
-		if cnt == 0 {
-			target = tip
-			break
+		if count == 0 {
+			return tip + 1
 		}
 	}
-	return target + 1
+	return -1
 }
 
 func jump_backward(source []uint8, start int) int {
-	var target = 0
-	var cnt = 1
+	var count = 1
 	for tip := start; tip > 0; tip-- {
-		cc := string(source[tip])
-		if cc == "]" {
-			cnt += 1
-		} else if cc == "[" {
-			cnt -= 1
+		if source[tip] == ']' {
+			count += 1
+		} else if source[tip] == '[' {
+			count -= 1
 		}
-		if cnt == 0 {
-			target = tip
-			break
+		if count == 0 {
+			return tip + 1
 		}
 	}
-	return target + 1
+	return -1
 }
 
 func main() {
