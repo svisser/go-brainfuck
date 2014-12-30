@@ -43,13 +43,12 @@ func main() {
 
 	flag.Parse()
 
-	path := *pathPtr
-	if path == "" {
+	if *pathPtr == "" {
 		fmt.Println("You must specify a path to Brainfuck source: -path=...")
 		os.Exit(1)
 	}
 
-	source, err := ioutil.ReadFile(path)
+	source, err := ioutil.ReadFile(*pathPtr)
 	if err != nil {
 		panic(err)
 	}
