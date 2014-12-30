@@ -19,3 +19,8 @@ This implementation follows these conventions:
 You can run a program as follows:
 
     go run brainfuck.go -path=samples/hello_world.bf
+
+The program's parameters are:
+
+    -path="": path to Brainfuck source
+    -size=30000: size of the data array
