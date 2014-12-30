@@ -24,7 +24,7 @@ func jump_forward(source []uint8, start int, source_length int) int {
 
 func jump_backward(source []uint8, start int) int {
 	var count = 1
-	for tip := start; tip > 0; tip-- {
+	for tip := start; tip >= 0; tip-- {
 		if source[tip] == ']' {
 			count += 1
 		} else if source[tip] == '[' {
