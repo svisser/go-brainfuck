@@ -7,12 +7,23 @@ import (
 	"os"
 )
 
+const (
+	charIncrementPointer = '>'
+	charDecrementPointer = '<'
+	charIncrementData    = '+'
+	charDecrementData    = '-'
+	charOutput           = '.'
+	charInput            = ','
+	charJumpForward      = '['
+	charJumpBackward     = ']'
+)
+
 func jump_forward(source []uint8, start int, source_length int) int {
 	var count = 1
 	for tip := start; tip < source_length; tip++ {
-		if source[tip] == '[' {
+		if source[tip] == charJumpForward {
 			count += 1
-		} else if source[tip] == ']' {
+		} else if source[tip] == charJumpBackward {
 			count -= 1
 		}
 		if count == 0 {
@@ -25,9 +36,9 @@ func jump_forward(source []uint8, start int, source_length int) int {
 func jump_backward(source []uint8, start int) int {
 	var count = 1
 	for tip := start; tip >= 0; tip-- {
-		if source[tip] == ']' {
+		if source[tip] == charJumpBackward {
 			count += 1
-		} else if source[tip] == '[' {
+		} else if source[tip] == charJumpForward {
 			count -= 1
 		}
 		if count == 0 {
@@ -59,31 +70,31 @@ func main() {
 	for ip := 0; ip < source_length; {
 		var c = source[ip]
 		switch {
-		case c == '>':
+		case c == charIncrementPointer:
 			dp += 1
 			ip += 1
-		case c == '<':
+		case c == charDecrementPointer:
 			dp -= 1
 			ip += 1
-		case c == '+':
+		case c == charIncrementData:
 			data[dp] += 1
 			ip += 1
-		case c == '-':
+		case c == charDecrementData:
 			data[dp] -= 1
 			ip += 1
-		case c == '.':
+		case c == charOutput:
 			fmt.Printf("%c", data[dp])
 			ip += 1
-		case c == ',':
+		case c == charInput:
 			fmt.Scanf("%c", &data[dp])
 			ip += 1
-		case c == '[':
+		case c == charJumpForward:
 			if data[dp] == 0 {
 				ip = jump_forward(source, ip+1, source_length)
 			} else {
 				ip += 1
 			}
-		case c == ']':
+		case c == charJumpBackward:
 			if data[dp] != 0 {
 				ip = jump_backward(source, ip-1)
 			} else {
