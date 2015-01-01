@@ -11,7 +11,7 @@ For more information about the Brainfuck programming language, see:
 
 This implementation follows these conventions:
 
-- The data array contains signed integers.
+- The data array contains signed 64-bit integers.
 - Newlines are expected as a single character ('\n').
 
 ## Running a Brainfuck program

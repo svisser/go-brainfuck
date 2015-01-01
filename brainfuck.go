@@ -53,7 +53,7 @@ func main() {
 		panic(err)
 	}
 
-	var data = make([]int, *sizePtr)
+	var data = make([]int64, *sizePtr)
 	var source_length = len(source)
 	var dp = 0
 	for ip := 0; ip < source_length; {
